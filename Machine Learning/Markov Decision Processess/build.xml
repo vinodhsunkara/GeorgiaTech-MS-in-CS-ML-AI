@@ -1,0 +1,49 @@
+<project default = "all">
+
+	<target name="init">
+		<property name="jdocs.dir" value="docs"/>
+		<property name="bin.dir" value="bin"/>
+		<property name="src.dir" value="src"/>
+	</target>
+
+	<target name="prepare" depends="init">
+		<mkdir dir="${bin.dir}"/>
+		<mkdir dir="${jdocs.dir}"/>
+	</target>
+
+	<target name = "compile" depends="prepare">
+		<mkdir dir="bin"/>
+
+		<javac srcdir= "src" destdir = "bin">
+		    <classpath>
+		        <pathelement path="lib/burlap.jar"/>
+		    </classpath>
+		</javac>
+
+	</target>
+
+	<target name = "jar" depends = "compile">
+
+		<manifest file = "manifest.mf"/>
+
+		<delete file = "mdp_tests.jar"/>
+
+		<jar basedir = "bin/" destfile = "mdp_tests.jar" manifest = "manifest.mf">
+			<zipgroupfileset dir="lib" includes="mdp_tests.jar" />
+		</jar>
+
+	</target>
+
+
+
+	<target name="clean">
+		<delete dir="${bin.dir}" />
+		<delete dir="${jdocs.dir}" />
+	</target>
+
+
+	<target name = "all" depends = "compile,jar"/>
+
+</project>
+
+		
