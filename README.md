@@ -1,6 +1,6 @@
 # GeorgiaTech-MS-in-CS-ML-AI
 AI Agents: 
-Knowledge Representation - Semantic Networks 
+ * Knowledge Representation - Semantic Networks 
 Generate & Test (Generate solutions applying semantic networks, test on answer options)
 Means-Ends Analysis (step by step till goal)
 Frames (frames of objects connected)
